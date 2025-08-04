@@ -8,14 +8,23 @@
   <style>
     html { scroll-behavior: smooth; }
     section { scroll-margin-top: 80px; }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-marquee {
-      animation: marquee 25s linear infinite;
-    }
   </style>
+<style>
+@keyframes scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+</style>
+
+<script>
+  // Clone marquee content once to create seamless loop
+  const original = document.getElementById("marquee-track");
+  const clone = document.getElementById("marquee-clone");
+  clone.innerHTML = original.innerHTML;
+</script>
   <style>
 @keyframes fadeInUp {
   from {
@@ -91,7 +100,10 @@
   <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
     <h1 class="text-5xl md:text-7xl font-bold mb-4">AURA FARMING</h1>
     <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse">
-  AURA Farming is not just a coin — it's a movement!
+  AURA Farming
+    </h1>
+    <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse">
+  is not just a coin — it's a movement!
     </h1>
     <p class="text font-extrabold text-white uppercase tracking-widest animate-bounce">
   Row Nonstop, Gain Nonstop! 🚀🔥
@@ -116,9 +128,17 @@
         <span>Join Telegram</span>
       </a>
     </div>
+  <div 
+  class="mt-5 bg-blue-900 p-4 rounded-xl shadow-md text-center cursor-pointer"
+  onclick="navigator.clipboard.writeText('0x1234...abcd'); alert('CA copied!')">
+  <p class="text-white text-xl font-semibold underline">
+    CA: 0x1234...abcd
+  </p>
   </div>
+</div>
 </section>
-<div class="w-full bg-[url('wave2.png')] bg-cover bg-center py-10">
+
+<div class="w-full bg-[url('wave5.png')] bg-cover bg-center py-10">
 <!-- About Us -->
 <section id="about" class="p-6 max-w-4xl w-full mx-auto my-1 md:my-4">
   <div class="absolute inset-0 bg-cover bg-center opacity-30 z-0";></div>
@@ -132,28 +152,31 @@
     Us? <span class="text-yellow-400">Nobody</span>
 </h2>
 <p class="mb-3 text-lg leading-relaxed">
-We're not a team of experts who used to work at <span class="text-blue-400">Google</span>.<br />
-We're also not promising to make this token the <span class="text-green-400">next Solana</span>.<br />
-But one thing is for sure: <span class="text-yellow-400">we have AURA</span>.
+We're not a team of experts who used to work at <span class="text-blue-400"><b>Google</b></span>.<br />
+We're also not promising to make this token the <span class="text-green-400"><b>next Solana</b></span>.<br />
+But one thing is for sure:
+</p>
+
+<h2 class="text-3xl font-bold mb-4"><span class="text-yellow-400">we have AURA</span>
+</h2>
+
+<p class="mb-4">
+Inspired by the viral men on canoes, <span class="text-yellow-400"><b>AURA Farming</b></span> was born as a tribute to flexibility, style, and <span class="text-blue-400"><b>unconditional confidence</b></span>.
 </p>
 
 <p class="mb-4">
-Inspired by the viral men on canoes, <span class="text-green-400">AURA Farming</span> was born as a tribute to flexibility, style, and <span class="text-blue-400">unconditional confidence</span>.
+Vision and mission? <span class="text-yellow-400"><b>Not important</b></span>.<br />
+Roadmap? <span class="text-blue-400"><b>We'll make it when we have time</b></span>.
 </p>
 
 <p class="mb-4">
-Vision and mission? <span class="text-yellow-400">Not important</span>.<br />
-Roadmap? <span class="text-blue-400">We'll make it when we have time</span>.
-</p>
-
-<p class="mb-4">
-Behind every successful meme token, there's a community that <span class="text-green-400">didn't think twice about buying</span>.<br />
-What's important is: <span class="text-yellow-400">the vibe is there</span>, <span class="text-green-400">the aura is strong</span>, and we <span class="text-blue-400">consistently dance above the red market</span>.
+Behind every successful meme token, there's a community that <span class="text-green-400"><b>didn't think twice about buying</b></span>.<br />
+What's important is: <span class="text-blue-400"><b>the vibe is there</b></span>, <span class="text-yellow-400"><b>the AURA is strong</b></span>, and we <span class="text-blue-400"><b>consistently dance above the red market</b></span>.
 
 </p> 
 
 <p class="mb-6 italic"> 
-Aura is not a feature, but a <span class="text-yellow-400">feeling</span>.<br /> 
+<span class="text-yellow-400"><b>AURA</b></span> is not a feature, but a <span class="text-blue-400"><b>FEELING</b></span>.<br /> 
 You don't join to make money (but hopefully you get it), you join because you understand... <span class="text-green-400 font-semibold">this vibe is different</span>. 🌊🛶 
 </p> 
 
@@ -192,12 +215,13 @@ Join the Aura
       <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse mb-8">
   Tokenomics</h2>
       <ul class="text-center text-xl space-y-4 font-medium leading-relaxed">
-        <li>✅ Total Supply 1,000,000,000 <strong>AURA</strong></li>
-        <li>✅ Buy Tax 2%</li>
-        <li>✅ Sell Tax 2%</li>
-        <li>✅ Ownership Renounced</li>
-        <li>✅ 🔥 100% Liquidity BURN</li>
-      </ul>
+  <li>✅ Total Supply: <strong>1,000,000,000 AURA</strong> (No cap)</li>
+  <li>✅ Tax: 2% (Just enough for udud 🤡)</li>
+  <li>✅ Ownership: Renounced (We let it go like Elsa)</li>
+  <li>✅ Dev Broke? <em>Probably. Send help.</em></li>
+  <li>✅ Liquidity: 100% 🔒 Locked & 🔥 Burned (Forever ever)</li>
+</ul>
+
     </div>
   </div>
 </section>
@@ -248,7 +272,7 @@ Join the Aura
 </div>
 <!-- Footer -->
 <section class="py-6 px-6 text-center text-sm text-gray-400">
-  Closing & Disclaimer: DYOR before investing. Meme project for fun & vibes only.
+  Disclaimer: DYOR before investing. Meme project for fun & vibes only.
 </section>
   </div>
 </div>
@@ -257,7 +281,7 @@ Join the Aura
 
 
 <footer class="bg-gray-900 text-gray-400 py-8 text-center relative">
-  <p>&copy; 2025 AURA FARMING. All rights sniped.</p>
+  <p>&copy; 2025 AURA FARMING. All Rights Sniped 🎯</p>
   <div class="absolute top-0 left-0 w-full h-4 bg-[url('/tinywave.svg')] bg-repeat-x animate-wave-slow"></div>
 </footer>
 </body>
