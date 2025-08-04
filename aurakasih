@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AURA Farming - Row Nonstop, Gain Nonstop!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=VT323&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'VT323', monospace;
+      background: linear-gradient(135deg, #0d0d2b, #1a3c5e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('https://source.unsplash.com/random/1920x1080?canoe') no-repeat center/cover;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero-content {
+      z-index: 1;
+    }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
+      text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
+      animation: flicker 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .hero p {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px;
+      right: -2px; bottom: -2px;
+      background: linear-gradient(45deg, #ff00ff, #00ffea, #ff00ff);
+      background-size: 400%;
+      z-index: -1;
+      animation: borderShift 5s linear infinite;
+      border-radius: 50px;
+    }
+    @keyframes borderShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    #contract-address {
+      margin-top: 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      text-shadow: 0 0 10px #00ffea;
+    }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #00ffea;
+    }
+    .about, .how-to-buy, .tokenomics, .roadmap {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(8px);
+    }
+    .about img {
+      width: 150px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffea;
+    }
+    .about p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .step {
+      background: rgba(42, 26, 63, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      box-shadow: 0 0 15px #ff00ff;
+      transition: transform 0.3s;
+    }
+    .step:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 30px #ff00ff;
+    }
+    .tokenomics table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 600px;
+      background: rgba(42, 26, 63, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .tokenomics th, .tokenomics td {
+      padding: 15px;
+      border: 1px solid #00ffea;
+    }
+    .tokenomics th {
+      background: #00ffea;
+      color: #0d0d2b;
+    }
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-item {
+      background: rgba(42, 26, 63, 0.3);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 15px #ff00ff;
+      transition: transform 0.3s;
+    }
+    .timeline-item:hover {
+      transform: translateY(-10px);
+    }
+    footer {
+      background: #0d0d2b;
+      padding: 20px;
+      text-align: center;
+      font-size: 1rem;
+    }
+    footer a {
+      color: #00ffea;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>AURA Farming</h1>
+      <p>Row Nonstop, Gain Nonstop! 🚀🔥</p>
+      <div class="cta-buttons">
+        <a href="https://dexscreener.com" target="_blank" class="cta-button">View Chart</a>
+        <a href="#" class="cta-button">Buy Now</a>
+        <a href="https://t.me/aurafarming" class="cta-button">Join Telegram</a>
+      </div>
+      <div id="contract-address">CA: 0x1234...abcd</div>
+    </div>
+  </section>
+
+  <section class="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <img src="https://via.placeholder.com/150.png?text=AURA" alt="AURA Logo"/>
+    <p>We are not from Google. We’re not here to revolutionize crypto. We're here to meme.</p>
+    <p><strong>AURA is a FEELING.</strong> If you know, you know. 🌊🛶</p>
+    <a href="https://t.me/aurafarming" class="cta-button">Join the Aura</a>
+  </section>
+
+  <section class="how-to-buy" data-aos="fade-up">
+    <h2>How to Buy</h2>
+    <div class="steps">
+      <div class="step"><h3>1</h3><p>Create Wallet</p></div>
+      <div class="step"><h3>2</h3><p>Get BNB</p></div>
+      <div class="step"><h3>3</h3><p>Open PancakeSwap</p></div>
+      <div class="step"><h3>4</h3><p>Swap to AURA</p></div>
+      <div class="step"><h3>5</h3><p>Farm & Vibe 😎</p></div>
+    </div>
+  </section>
+
+  <section class="tokenomics" data-aos="fade-up">
+    <h2>Tokenomics</h2>
+    <table>
+      <tr><th>Detail</th><th>Value</th></tr>
+      <tr><td>Total Supply</td><td>1,000,000,000 AURA</td></tr>
+      <tr><td>Tax</td><td>2% — Udud Fund</td></tr>
+      <tr><td>Ownership</td><td>Renounced (Let it go~)</td></tr>
+      <tr><td>Liquidity</td><td>100% 🔒 & 🔥</td></tr>
+      <tr><td>Dev Broke?</td><td>Always.</td></tr>
+    </table>
+  </section>
+
+  <section class="roadmap" data-aos="fade-up">
+    <h2>Roadmap</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Stage 1: Awakens</h3>
+        <p>✅ Launch<br>✅ Website<br>✅ First 100 holders</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Stage 2: Intensifies</h3>
+        <p>✅ Twitter Trend<br>✅ Meme contest<br>✅ 1K holders</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Stage 3: Explodes</h3>
+        <p>☑️ CEX Listing<br>☑️ Merch<br>☑️ Global boat challenge</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>Disclaimer:</strong> DYOR. Meme first, money... maybe?</p>
+    <p>
+      <a href="https://t.me/aurafarming">Telegram</a> |
+      <a href="https://x.com/aurafarming">X</a> |
+      <a href="#">Discord</a>
+    </p>
+    <p>© 2025 AURA Farming. All Rights Sniped 🎯</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
