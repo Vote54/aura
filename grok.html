@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minigun ($GUN) Token Launch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0d0d2b 0%, #2a1a3f 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://source.unsplash.com/random/1920x1080?cyber') no-repeat center/cover;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            z-index: 1;
+        }
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5rem;
+            text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #00ffea, #ff00ff);
+            border: none;
+            border-radius: 50px;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffea;
+        }
+        #countdown {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-top: 20px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        /* Section Styling */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00ffea;
+        }
+        /* About Section */
+        .about {
+            background: #1a1a3d;
+        }
+        .about img {
+            max-width: 200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffea;
+        }
+        /* Tokenomics Section */
+        .tokenomics table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            background: #2a1a3f;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .tokenomics th, .tokenomics td {
+            padding: 15px;
+            border: 1px solid #00ffea;
+        }
+        .tokenomics th {
+            background: #00ffea;
+            color: #0d0d2b;
+        }
+        /* Roadmap Section */
+        .roadmap {
+            background: #0d0d2b;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .timeline-item {
+            background: #2a1a3f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 15px #ff00ff;
+            transition: transform 0.3s;
+        }
+        .timeline-item:hover {
+            transform: translateY(-10px);
+        }
+        /* Footer */
+        footer {
+            background: #1a1a3d;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #00ffea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Minigun ($GUN)</h1>
+            <p>Fire Up the Meme Revolution! 🚀</p>
+            <button class="cta-button">Buy $GUN Now</button>
+            <div id="countdown"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>About Minigun</h2>
+        <img src="minigun-logo.png" alt="Minigun Logo" /> <!-- Ganti dengan logo Minigun -->
+        <p>Minigun ($GUN) is the ultimate meme token ready to blast through the crypto universe! With a 100% DEX-burned supply and a 2% tax, we're here for fun and to the MOON!</p>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics">
+        <h2>Tokenomics</h2>
+        <table>
+            <tr>
+                <th>Detail</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Minigun</td>
+            </tr>
+            <tr>
+                <td>Ticker</td>
+                <td>$GUN</td>
+            </tr>
+            <tr>
+                <td>Total Supply</td>
+                <td>1,000,000,000</td>
+            </tr>
+            <tr>
+                <td>Distribution</td>
+                <td>100% on DEX (Burned)</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>2%</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap">
+        <h2>Roadmap</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Stage 1: Minigun Born</h3>
+                <p>The Minigun is forged in the meme universe, ready to fire up the community!</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Stage 2: Boom !! To the Moon 🚀</h3>
+                <p>Launch on DEX, community growth, and skyrocketing to the crypto galaxy!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Disclaimer:</strong> DYOR! Minigun ($GUN) is a meme token created for fun. Invest at your own risk.</p>
+        <p>
+            <a href="https://t.me/miniguncommunity" target="_blank">Telegram</a> |
+            <a href="https://x.com/miniguntoken" target="_blank">X</a> |
+            <a href="https://discord.gg/minigun" target="_blank">Discord</a>
+        </p>
+    </footer>
+
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+        // Countdown Timer
+        const launchDate = new Date('2025-08-31T00:00:00').getTime();
+        const countdown = document.getElementById('countdown');
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            if (distance < 0) {
+                clearInterval(timer);
+                countdown.innerHTML = "Launched!";
+            }
+        }, 1000);
+    </script>
+</body>
+  </html>
