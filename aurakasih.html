@@ -3,271 +3,316 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AURA Farming - Row Nonstop, Gain Nonstop!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=VT323&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+  <meta name="description" content="AURA Farming - The viral meme token inspired by the iconic paddle boy. Join the wave and farm your aura on BSC now.">
+<meta name="keywords" content="Aura Farming, meme coin, BSC token, paddle meme, viral crypto, aura boy, crypto farming, BSC meme">
+<meta name="author" content="AuraFarming Team">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="AURA Farming - Viral Meme Token on BSC">
+<meta property="og:description" content="Join the most viral crypto movement of the year. Aura Farming brings hype, meme, and a bold spirit to BSC.">
+<meta property="og:image" content="https://yourdomain.com/your-social-preview.jpg">
+<meta property="og:url" content="https://yourdomain.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="Aura.png" type="image/x-icon">
+
+<title>AURA - it's a FEELING !! 🔥</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'VT323', monospace;
-      background: linear-gradient(135deg, #0d0d2b, #1a3c5e);
-      color: #fff;
-      overflow-x: hidden;
+      font-family: 'Chakra Petch', sans-serif;
     }
-    html {
-      scroll-behavior: smooth;
+    section { scroll-margin-top: 80px; }
+    @keyframes scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
     }
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: url('https://source.unsplash.com/random/1920x1080?canoe') no-repeat center/cover;
-      position: relative;
+    .animate-scroll { animation: scroll 30s linear infinite; }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .hero-content {
-      z-index: 1;
-    }
-    .hero h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 5rem;
-      text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea;
-      animation: flicker 2s infinite;
-    }
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .hero p {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      text-shadow: 0 0 10px #ff00ff;
-    }
-    .cta-buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .cta-button {
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      font-family: 'Orbitron', sans-serif;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      background: transparent;
-      cursor: pointer;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: -2px; left: -2px;
-      right: -2px; bottom: -2px;
-      background: linear-gradient(45deg, #ff00ff, #00ffea, #ff00ff);
-      background-size: 400%;
-      z-index: -1;
-      animation: borderShift 5s linear infinite;
-      border-radius: 50px;
-    }
-    @keyframes borderShift {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-    #contract-address {
-      margin-top: 20px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1rem;
-      text-shadow: 0 0 10px #00ffea;
-    }
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    section h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 30px;
-      text-shadow: 0 0 10px #00ffea;
-    }
-    .about, .how-to-buy, .tokenomics, .roadmap {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(8px);
-    }
-    .about img {
-      width: 150px;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00ffea;
-    }
-    .about p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      line-height: 1.6;
-    }
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .step {
-      background: rgba(42, 26, 63, 0.3);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      width: 200px;
-      box-shadow: 0 0 15px #ff00ff;
-      transition: transform 0.3s;
-    }
-    .step:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 30px #ff00ff;
-    }
-    .tokenomics table {
-      margin: 0 auto;
-      border-collapse: collapse;
-      width: 90%;
-      max-width: 600px;
-      background: rgba(42, 26, 63, 0.2);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .tokenomics th, .tokenomics td {
-      padding: 15px;
-      border: 1px solid #00ffea;
-    }
-    .tokenomics th {
-      background: #00ffea;
-      color: #0d0d2b;
-    }
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .timeline-item {
-      background: rgba(42, 26, 63, 0.3);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 15px #ff00ff;
-      transition: transform 0.3s;
-    }
-    .timeline-item:hover {
-      transform: translateY(-10px);
-    }
-    footer {
-      background: #0d0d2b;
-      padding: 20px;
-      text-align: center;
-      font-size: 1rem;
-    }
-    footer a {
-      color: #00ffea;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    .animate-fade-in-up { animation: fadeInUp 1s ease-out both; }
+    .aura-glow { text-shadow: 0 0 20px #facc15, 0 0 40px #facc15; }
   </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body>
-  <section class="hero">
-    <div class="hero-content">
-      <h1>AURA Farming</h1>
-      <p>Row Nonstop, Gain Nonstop! 🚀🔥</p>
-      <div class="cta-buttons">
-        <a href="https://dexscreener.com" target="_blank" class="cta-button">View Chart</a>
-        <a href="#" class="cta-button">Buy Now</a>
-        <a href="https://t.me/aurafarming" class="cta-button">Join Telegram</a>
-      </div>
-      <div id="contract-address">CA: 0x1234...abcd</div>
+<body class="bg-gray-900 text-white">
+<!-- Navbar -->
+<nav x-data="{ open: false }" class="fixed top-0 w-full z-50 bg-white/10 backdrop-blur-md text-white border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center font-semibold">
+    <div class="flex items-center gap-2">
+      <img src="Aura.png" alt="Aura boy standing on paddle boat doing sniper pose" class="w-8 h-8" />
+      <span class="text-lg">AURA FARMING</span>
     </div>
-  </section>
-
-  <section class="about" data-aos="fade-up">
-    <h2>About Us</h2>
-    <img src="https://via.placeholder.com/150.png?text=AURA" alt="AURA Logo"/>
-    <p>We are not from Google. We’re not here to revolutionize crypto. We're here to meme.</p>
-    <p><strong>AURA is a FEELING.</strong> If you know, you know. 🌊🛶</p>
-    <a href="https://t.me/aurafarming" class="cta-button">Join the Aura</a>
-  </section>
-
-  <section class="how-to-buy" data-aos="fade-up">
-    <h2>How to Buy</h2>
-    <div class="steps">
-      <div class="step"><h3>1</h3><p>Create Wallet</p></div>
-      <div class="step"><h3>2</h3><p>Get BNB</p></div>
-      <div class="step"><h3>3</h3><p>Open PancakeSwap</p></div>
-      <div class="step"><h3>4</h3><p>Swap to AURA</p></div>
-      <div class="step"><h3>5</h3><p>Farm & Vibe 😎</p></div>
+    <div class="hidden md:flex gap-6">
+      <a href="#hero" class="hover:text-yellow-400 hover:drop-shadow">Home</a>
+      <a href="#about" class="hover:text-yellow-400 hover:drop-shadow">About Us</a>
+      <a href="#how" class="hover:text-yellow-400 hover:drop-shadow">How to Buy</a>
+      <a href="#token" class="hover:text-yellow-400 hover:drop-shadow">Tokenomics</a>
+      <a href="#roadmap" class="hover:text-yellow-400 hover:drop-shadow">Roadmap</a>
     </div>
-  </section>
+    <div class="md:hidden">
+      <button @click="open = !open">
+        <template x-if="!open">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </template>
+        <template x-if="open">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </template>
+      </button>
+    </div>
+  </div>
+  <div x-show="open" x-transition x-cloak class="md:hidden px-6 pb-4 pt-2 flex flex-col gap-4 text-white bg-white/10 backdrop-blur-md border-t border-white/10" @click.outside="open = false">
+    <a href="#hero" @click="open = false" class="hover:text-yellow-400">Home</a>
+    <a href="#about" @click="open = false" class="hover:text-yellow-400">About Us</a>
+    <a href="#how" @click="open = false" class="hover:text-yellow-400">How to Buy</a>
+    <a href="#token" @click="open = false" class="hover:text-yellow-400">Tokenomics</a>
+    <a href="#roadmap" @click="open = false" class="hover:text-yellow-400">Roadmap</a>
+  </div>
+</nav>
 
-  <section class="tokenomics" data-aos="fade-up">
-    <h2>Tokenomics</h2>
-    <table>
-      <tr><th>Detail</th><th>Value</th></tr>
-      <tr><td>Total Supply</td><td>1,000,000,000 AURA</td></tr>
-      <tr><td>Tax</td><td>2% — Udud Fund</td></tr>
-      <tr><td>Ownership</td><td>Renounced (Let it go~)</td></tr>
-      <tr><td>Liquidity</td><td>100% 🔒 & 🔥</td></tr>
-      <tr><td>Dev Broke?</td><td>Always.</td></tr>
-    </table>
-  </section>
+<div class="relative">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70 z-0"></div>
+  <div class="relative z-10"> 
+    <!-- Hero -->
+<section id="hero" class="relative w-full min-h-screen bg-no-repeat bg-top bg-cover" style="background-image:url('hero-aura-boy.png'); padding-top: 300px; padding-bottom: 300px;">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
+    <h1 class="text-5xl md:text-7xl font-bold mb-4">AURA FARMING</h1>
+    <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse">
+  AURA FARMING
+    </h1>
+    <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse">
+  is not just a coin — it's a FEELING !!
+    </h1>
+    <p class="text font-extrabold text-white uppercase tracking-widest animate-bounce">
+  Row Nonstop, Gain Nonstop! 🚀🔥
+</p>
+    <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-6 text-center">
+      <a href="https://dexscreener.com/bsc/yourpair" target="_blank" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v5"/><path d="M16 14v7"/><path d="M20 10v11"/><path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15"/><path d="M4 18v3"/><path d="M8 14v7"/></svg>
+        <span>View Chart</span>
+      </a>
+      <a href="https://pancakeswap.finance/swap?outputCurrency=0xYourTokenAddress" target="_blank" class="flex items-center gap-2 bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-3 rounded transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 7c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v3H2V7z" />
+          <path d="M2 10h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z" />
+          <circle cx="16" cy="14" r="1" />
+        </svg>
+        <span>Buy Now</span>
+      </a>
+      <a href="https://t.me/YourTelegramGroup" target="_blank" class="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 4L3 12l5 2 2 5L21 4z"/>
+        </svg>
+        <span>Join Telegram</span>
+      </a>
+    </div>
+  <div 
+  class="mt-5 bg-blue-900 p-4 rounded-xl shadow-md text-center cursor-pointer"
+  onclick="navigator.clipboard.writeText('0x1234...abcd'); alert('CA copied!')">
+  <p class="text-white text-xl font-semibold underline">
+    CA: 0x1234...abcd
+  </p>
+  </div>
+</div>
+</section>
 
-  <section class="roadmap" data-aos="fade-up">
-    <h2>Roadmap</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Stage 1: Awakens</h3>
-        <p>✅ Launch<br>✅ Website<br>✅ First 100 holders</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Stage 2: Intensifies</h3>
-        <p>✅ Twitter Trend<br>✅ Meme contest<br>✅ 1K holders</p>
-      </div>
-      <div class="timeline-item">
-        <h3>Stage 3: Explodes</h3>
-        <p>☑️ CEX Listing<br>☑️ Merch<br>☑️ Global boat challenge</p>
+<div class="w-full bg-[url('')] bg-cover bg-center py-10">
+
+<!-- About Us -->
+<section id="about" class="relative px-6 py-12 max-w-5xl w-full mx-auto my-4 z-10">
+  <div class="absolute inset-0 bg-[url('wave5.png')] bg-cover bg-center opacity-10 blur-md -z-10"></div>
+  
+  <div class="bg-white/5 backdrop-blur-md border border-white/10 shadow-xl rounded-2xl p-8 md:p-12">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 animate-pulse text-center mb-10 tracking-tight drop-shadow-lg">
+      About Us
+    </h2>
+
+    <div class="space-y-6 text-white text-lg leading-relaxed font-light">
+      
+      <h3 class="text-2xl md:text-3xl font-semibold text-yellow-400 drop-shadow-sm">Us? <span class="text-white">Nobody.</span></h3>
+
+      <p>
+        We're not a team of experts who used to work at 
+        <span class="text-blue-400 font-bold">Google</span>.<br />
+        We're also not promising to make this token the 
+        <span class="text-green-400 font-bold">next Solana</span>.<br />
+        But one thing is for sure:
+      </p>
+
+      <h3 class="text-3xl font-bold text-yellow-300 tracking-wide">we have AURA</h3>
+
+      <p>
+        Inspired by the viral BOY on canoes, 
+        <span class="text-yellow-400 font-bold">AURA Farming</span> was born as a tribute to flexibility, style, and 
+        <span class="text-blue-300 font-bold">unconditional confidence</span>.
+      </p>
+
+      <p>
+        Vision and mission? <span class="text-yellow-400 font-bold">Not important</span>.<br />
+        Roadmap? <span class="text-blue-400 font-bold">We'll make it when we have time</span>.
+      </p>
+
+      <p>
+        Behind every successful meme token, there's a community that 
+        <span class="text-green-400 font-bold">didn't think twice about buying</span>.<br />
+        What's important is: <span class="text-blue-300 font-bold">the vibe is there</span>, 
+        <span class="text-yellow-300 font-bold">the AURA is strong</span>, and we 
+        <span class="text-blue-300 font-bold">consistently dance above the red market</span>.
+      </p>
+
+      <p class="italic text-white/80"> 
+        <span class="text-yellow-400 font-bold">AURA</span> is not a feature, but a 
+        <span class="text-blue-400 font-bold">FEELING</span>.<br /> 
+        You don't join to make money (but hopefully you do), you join because you understand... 
+        <span class="text-green-400 font-semibold">this vibe is different</span>. 🌊🛶 
+      </p>
+
+      <div class="pt-4">
+        <a href="#buy" class="relative inline-block px-8 py-3 text-lg font-semibold text-white rounded-full bg-gradient-to-r from-blue-500 via-yellow-400 to-green-400 hover:scale-105 transition-transform shadow-lg">
+          <span class="relative z-10">Join the Aura</span>
+          <span class="absolute inset-0 bg-white opacity-10 blur-lg animate-pulse rounded-full"></span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<!-- Tokenomics -->
+<section id="token" class="p-6 max-w-6xl w-full mx-auto my-1 md:my-4">
+  <div class="text-center mb-10">
+    <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-red-500 animate-pulse">
+      Tokenomics
+    </h2>
+    <p class="text-lg mt-2 text-gray-300">AURA is powered by pure meme fuel & on-chain swag 💅</p>
+  </div>
 
-  <footer>
-    <p><strong>Disclaimer:</strong> DYOR. Meme first, money... maybe?</p>
-    <p>
-      <a href="https://t.me/aurafarming">Telegram</a> |
-      <a href="https://x.com/aurafarming">X</a> |
-      <a href="#">Discord</a>
-    </p>
-    <p>© 2025 AURA Farming. All Rights Sniped 🎯</p>
-  </footer>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Box 1 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-purple-700 via-fuchsia-600 to-pink-500 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Total Supply</h3>
+      <p class="text-lg">1,000,000,000 AURA (Yes, one billion. Deal with it 🫡)</p>
+    </div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <!-- Box 2 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-amber-500 via-orange-500 to-red-500 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Tax</h3>
+      <p class="text-lg">2% . Just enough for coffee + udud 😎</p>
+    </div>
+
+    <!-- Box 3 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-cyan-500 via-teal-400 to-green-500 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Ownership</h3>
+      <p class="text-lg">Renounced. Like Elsa said, we let it go ❄️</p>
+    </div>
+
+    <!-- Box 4 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-400 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Liquidity</h3>
+      <p class="text-lg">100% Locked + Burned 🔒🔥. No rug, just row.</p>
+    </div>
+
+    <!-- Box 5 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-rose-500 via-pink-500 to-red-500 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Target</h3>
+      <p class="text-lg">BlackHole. From hole to another hole 🗿</p>
+    </div>
+
+     <!-- Box 6 -->
+    <div class="rounded-2xl p-5 bg-gradient-to-br from-indigo-600 via-grey-600 to-black-400 shadow-lg text-white hover:scale-105 transition">
+      <h3 class="text-2xl font-bold mb-2">Dev Wallet</h3>
+      <p class="text-lg">Empty. Dev probably broke, plis send help 🤡</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap" class="p-6 max-w-4xl w-full mx-auto my-1 md:my-4">
+  <div class="absolute inset-0 bg-cover bg-center opacity-30 z-0"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-yellow-400 to-orange-500 animate-pulse mb-8">
+        Roadmap
+      </h2>
+      <div class="bg-gradient-to-br from-yellow-400/20 via-purple-600/20 to-blue-400/20 backdrop-blur-md p-6 rounded-2xl border border-yellow-500/30 shadow-lg shadow-yellow-500/10">
+          <h3 class="font-semibold text-lg mb-2 text-yellow-300">S 1 - Aura Awakens</h3>
+          <ul class="text-sm text-left text-gray-200 space-y-1">
+            <li>✅ Launch token AURA</li>
+            <li>✅ Website + Socials Live</li>
+            <li>✅ First 100 holders</li>
+            <li>✅ Meme vibes emerge</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-yellow-400/20 via-purple-600/20 to-blue-400/20 backdrop-blur-md p-6 rounded-2xl border border-purple-500/30 shadow-lg shadow-purple-500/10">
+          <h3 class="font-semibold text-lg mb-2 text-purple-300">S 2 - Aura Intensifies</h3>
+          <ul class="text-sm text-left text-gray-200 space-y-1">
+            <li>✅ Trending on Twitter</li>
+            <li>✅ 1,000 holders</li>
+            <li>✅ Minor CEX listing</li>
+            <li>✅ Meme competition</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-yellow-400/20 via-pink-600/20 to-cyan-400/20 backdrop-blur-md p-6 rounded-2xl border border-pink-500/30 shadow-lg shadow-pink-500/10">
+          <h3 class="font-semibold text-lg mb-2 text-pink-300">S 3 - Aura Explodes</h3>
+          <ul class="text-sm text-left text-gray-200 space-y-1">
+            <li>✅ 10,000+ holders</li>
+            <li>✅ Official merch</li>
+            <li>✅ Global boat challenge</li>
+            <li>✅ Major CEX listing</li>
+            <li>✅ Aura staking & farming</li>
+          </ul>
+        </div>
+      
+      <a href="#telegram" class="inline-block mt-6 px-6 py-2 bg-gradient-to-r from-blue-500 via-yellow-400 to-green-400 text-black font-bold rounded-full hover:scale-105 transition">
+        Join Our Telegram
+      </a>
+    </div>
+  </div>
+</section>
+
+
+</div>
+<!-- How to Buy -->
+<section id="how" class="relative py-12 px-6 md:px-10 bg-black/80 rounded-2xl shadow-xl border border-yellow-500/30 max-w-6xl mx-auto my-8">
+  <!-- Neon Border Glow -->
+  <div class="absolute inset-0 rounded-2xl border-4 border-yellow-300 opacity-20 blur-xl animate-pulse pointer-events-none z-0"></div>
+
+  <div class="relative z-10 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 animate-pulse mb-10">
+      How To Buy
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-xl md:text-2xl font-medium leading-relaxed">
+      <div class="bg-black/60 rounded-xl p-6 border border-yellow-500/20">
+        ✅ Create Wallet  
+        <br>✅ Get BNB  
+        <br>✅ Open PancakeSwap
+      </div>
+      <div class="bg-black/60 rounded-xl p-6 border border-yellow-500/20">
+        ✅ Swap to <strong>AURA</strong>  
+        <br>✅ Farm your <strong>AURA</strong>  
+        <br>✅ Enjoy the vibes!
+      </div>
+    </div>
+
+    <a href="#buy-now" class="inline-block mt-10 px-8 py-3 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition-all shadow-lg">
+      🚀 Buy AURA Now
+    </a>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<section class="py-6 px-6 text-center text-sm text-gray-400">
+  Disclaimer: DYOR Before <s>Investing</s> Gambling. Meme project for fun & vibes only.
+</section>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 py-8 text-center relative mt-20">
+  <p>&copy; 2025 AURA FARMING. All Rights Sniped 🎯</p>
+  <div class="absolute top-0 left-0 w-full h-4 bg-[url('/tinywave.svg')] bg-repeat-x animate-scroll"></div>
+</footer>
 </body>
 </html>
